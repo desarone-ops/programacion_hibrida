@@ -1,0 +1,35 @@
+<!-- Formulario reactivo -->
+<form [formGroup]="form">
+  <!-- Campo FRASE -->
+  <ion-item>
+    <ion-label position="stacked">Frase</ion-label>
+    <ion-input formControlName="frase"></ion-input>
+  </ion-item>
+
+  <!-- Mensajes de error frase -->
+  <ion-text color="danger" *ngIf="fraseCtrl?.touched && fraseCtrl?.errors">
+    <p *ngIf="fraseCtrl?.errors?.['required']">La frase es obligatoria.</p>
+    <p *ngIf="fraseCtrl?.errors?.['minlength']">
+      La frase debe tener al menos 5 caracteres.
+    </p>
+  </ion-text>
+
+  <!-- Campo AUTOR -->
+  <ion-item class="ion-margin-top">
+    <ion-label position="stacked">Autor</ion-label>
+    <ion-input formControlName="autor"></ion-input>
+  </ion-item>
+
+  <!-- Mensajes de error autor -->
+  <ion-text color="danger" *ngIf="autorCtrl?.touched && autorCtrl?.errors">
+    <p *ngIf="autorCtrl?.errors?.['required']">El autor es obligatorio.</p>
+    <p *ngIf="autorCtrl?.errors?.['minlength']">
+      El autor debe tener al menos 2 caracteres.
+    </p>
+  </ion-text>
+
+  <!-- Botón Agregar -->
+  <ion-button expand="block" class="ion-margin-top" (click)="submit()">
+    Agregar
+  </ion-button>
+</form>

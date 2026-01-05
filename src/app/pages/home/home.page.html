@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inicio</ion-title>
+
+    <!-- Navegación usando RouterLink -->
+    <ion-buttons slot="end">
+      <ion-button routerLink="/manage-quotes">Gestionar</ion-button>
+      <ion-button routerLink="/settings">Config</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Tarjeta que muestra la cita -->
+  <app-quote-card
+    [quote]="quote"
+    [showDelete]="settings.permitirBorrarEnInicio"
+    (delete)="deleteQuote($event)">
+  </app-quote-card>
+
+  <!-- Botón para elegir otra cita -->
+  <ion-button expand="block" (click)="refresh()">
+    Otra cita
+  </ion-button>
+</ion-content>

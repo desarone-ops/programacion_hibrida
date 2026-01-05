@@ -1,0 +1,26 @@
+<!--
+  Solo renderizamos la tarjeta si la cita existe.
+  Esto evita errores cuando Angular aún no ha asignado el @Input.
+-->
+<ion-card *ngIf="quote">
+  <ion-card-header>
+    <ion-card-title>
+      “{{ quote.frase }}”
+    </ion-card-title>
+
+    <ion-card-subtitle>
+      — {{ quote.autor }}
+    </ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    <!-- Botón eliminar solo si está permitido -->
+    <ion-button
+      *ngIf="showDelete"
+      color="danger"
+      fill="outline"
+      (click)="onDelete()">
+      Eliminar
+    </ion-button>
+  </ion-card-content>
+</ion-card>
